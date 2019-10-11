@@ -19,13 +19,11 @@ class TennisGame1:
 
     def score(self):
         if self.p1points == self.p2points:
-            eq = EqualScore(self.p1points)
-            return eq.compute_score()
+            scorer = EqualScore(self.p1points)
         elif self.p1points >= 4 or self.p2points >= 4:
-            smt = ScoreMoreThan4(self.player1Name, self.player2Name, self.p1points, self.p2points)
-            return smt.compute_score()
+            scorer = ScoreMoreThan4(self.player1Name, self.player2Name, self.p1points, self.p2points)
         else:
-            diff = DiffScore(self.p1points, self.p2points)
-            return diff.compute_score()
+            scorer = DiffScore(self.p1points, self.p2points)
+        return scorer.compute_score()
 
 
