@@ -34,20 +34,13 @@ class TennisGame1:
         return result
 
     def diff_score(self):
-        result = ''
-        for i in range(1, 3):
-            if i == 1:
-                tempScore = self.p1points
-            else:
-                result += "-"
-                tempScore = self.p2points
-            result += {
+        score_str_dico = {
                 0: "Love",
                 1: "Fifteen",
                 2: "Thirty",
                 3: "Forty",
-            }[tempScore]
-        return result
+            }
+        return "-".join(map(score_str_dico.get, [self.p1points, self.p2points]))
 
     def score(self):
         if (self.p1points == self.p2points):
