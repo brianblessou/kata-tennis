@@ -16,34 +16,13 @@ class TennisGame2 (val player1Name : String, val player2Name : String) extends T
           if(P1point < 3) score = lowEqual(P1point)
           else if(P1point>=3) score = "Deuce"
           else throw new Exception("score not in range of valid values")
-        }
-
-        if (P1point > 0 && P2point==0)
+        }else if (P1point > 0 && P2point==0)
         {
-            if (P1point==1)
-                P1res = "Fifteen"
-            if (P1point==2)
-                P1res = "Thirty"
-            if (P1point==3)
-                P1res = "Forty"
-
-            P2res = "Love"
-            score = P1res + "-" + P2res
-        }
-        if (P2point > 0 && P1point==0)
+          score = love(P1point, player1Name)
+        }else if (P2point > 0 && P1point==0)
         {
-            if (P2point==1)
-                P2res = "Fifteen"
-            if (P2point==2)
-                P2res = "Thirty"
-            if (P2point==3)
-                P2res = "Forty"
-
-            P1res = "Love"
-            score = P1res + "-" + P2res
-        }
-
-        if (P1point>P2point && P1point < 4)
+          score = love(P2point, player2Name)
+        }else if (P1point>P2point && P1point < 4)
         {
             if (P1point==2)
                 P1res="Thirty"
@@ -54,8 +33,7 @@ class TennisGame2 (val player1Name : String, val player2Name : String) extends T
             if (P2point==2)
                 P2res="Thirty"
             score = P1res + "-" + P2res
-        }
-        if (P2point>P1point && P2point < 4)
+        }else if (P2point>P1point && P2point < 4)
         {
             if (P2point==2)
                 P2res="Thirty"
@@ -66,23 +44,16 @@ class TennisGame2 (val player1Name : String, val player2Name : String) extends T
             if (P1point==2)
                 P1res="Thirty"
             score = P1res + "-" + P2res
-        }
-
-        if (P1point > P2point && P2point >= 3)
+        }else if (P1point > P2point && P2point >= 3)
         {
             score = "Advantage player1"
-        }
-
-        if (P2point > P1point && P1point >= 3)
+        }else if (P2point > P1point && P1point >= 3)
         {
             score = "Advantage player2"
-        }
-
-        if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
+        }else if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
         {
             score = "Win for player1"
-        }
-        if (P2point>=4 && P1point>=0 && (P2point-P1point)>=2)
+        }else if (P2point>=4 && P1point>=0 && (P2point-P1point)>=2)
         {
             score = "Win for player2"
         }
@@ -133,4 +104,27 @@ class TennisGame2 (val player1Name : String, val player2Name : String) extends T
       score += "-All"
       score
     }
+
+  /**
+   *
+   * @param point
+   * @param playerName
+   * @return
+   */
+  def love(point : Int, playerName : String) : String = {
+    var res = ""
+    if (point==1)
+      res = "Fifteen"
+    if (point==2)
+      res = "Thirty"
+    if (point==3)
+      res = "Forty"
+
+    if(playerName == player1Name){
+      res += "Love" + "-" + res
+    } else {
+      res += res + "-" + "Love"
+    }
+    res
+  }
 }
