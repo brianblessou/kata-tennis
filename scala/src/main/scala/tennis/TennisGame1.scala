@@ -10,20 +10,32 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
               m_score1 += 1
           else
               m_score2 += 1
-      }
+  }
+
+  /**
+   *
+   * @param score
+   * @return scoreConv
+   * @auth Robin CAVALIERI
+   * @desc In case of equal score, return the associated string
+   */
+  def equalScore(score: Int) : String = {
+    val scoreConv = score match {
+        case 0 =>  "Love-All"
+        case 1 => "Fifteen-All"
+        case 2 => "Thirty-All"
+        case _ => "Deuce"
+    }
+    return scoreConv
+  }
+
 
   def calculateScore() : String = {
       var score : String = ""
       var tempScore=0
       if (m_score1==m_score2)
       {
-        score = m_score1 match {
-              case 0 =>  "Love-All"
-              case 1 => "Fifteen-All"
-              case 2 => "Thirty-All"
-              case _ => "Deuce"
-
-          }
+        score = equalScore(m_score1)
       }
       else if (m_score1>=4 || m_score2>=4)
       {
