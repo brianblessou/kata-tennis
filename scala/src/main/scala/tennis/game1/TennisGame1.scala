@@ -24,7 +24,7 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
   def calculateScore() : String = {
       if (score1==score2)
       {
-        Equality.getResult(score1)
+        Equality.getResult(score1, score2)
       }
       else if (score1>=4 || score2>=4)
       {

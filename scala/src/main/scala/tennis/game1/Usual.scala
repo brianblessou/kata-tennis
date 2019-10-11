@@ -1,6 +1,6 @@
 package tennis.game1
 
-object Usual {
+object Usual extends Situation {
 
   /**
    *

@@ -1,6 +1,6 @@
 package tennis.game1
 
-object EndZone {
+object EndZone extends Situation {
 
   /**
    * handles end of the game
