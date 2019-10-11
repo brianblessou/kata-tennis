@@ -1,0 +1,4 @@
+{
+  "test/tennis_unittest3.py::TestTennis::test_Score_Game1": true,
+  "test/tennis_unittest3.py::TestTennis::test_Score_Game2": true
+}
