@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from python.src.TennisGame3.points_lower_than_4 import PointsLowerThan4
-from python.src.TennisGame3.points_bigger_than_4 import PointsBiggerThan4
+from python.src.TennisGame3.score_creator import ScoreCreator
+
 
 class TennisGame3:
     def __init__(self, player1Name: str, player2Name: str):
@@ -25,16 +25,9 @@ class TennisGame3:
         else:
             self.pointsPlayer2 += 1
 
-
-
     def score(self) -> str:
         """
         Computes for different case the score of the game
         :return: Actual score (str)
         """
-        if (self.pointsPlayer1 == self.pointsPlayer2) and (self.pointsPlayer1 >= 3):
-            return "Deuce"
-        elif self.pointsPlayer1 < 4 and self.pointsPlayer2 < 4:
-            return PointsLowerThan4(self).compute_score()
-        else:
-            return PointsBiggerThan4(self).compute_score()
+        return ScoreCreator(self).create().compute_score()
