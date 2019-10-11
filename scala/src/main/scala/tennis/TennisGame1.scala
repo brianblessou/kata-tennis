@@ -58,6 +58,24 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
 
   /**
    *
+   * @param score
+   * @return
+   */
+  def convScore(score: Int): String = {
+
+    val scoreConv = score match {
+      case 0 => "Love"
+      case 1 => "Fifteen"
+      case 2 => "Thirty"
+      case 3 => "Forty"
+    }
+
+    scoreConv
+  }
+
+
+  /**
+   *
    * @param scorePlayer1 Int between 0 and 2
    * @param scorePlayer2 Int between 0 and 2
    * @return
@@ -65,25 +83,9 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    * @desc
    */
   def diffScore(scorePlayer1: Int, scorePlayer2: Int): String = {
-    var score = ""
-    var tempScore = 0
-    for ( i<- 1 until 3 by 1)
-    {
-      if (i==1) {
-        tempScore = scorePlayer1
-      }
-      else {
-        score += "-"
-        tempScore = scorePlayer2
-      }
-      val tempScore2 = tempScore match {
-        case 0 => "Love"
-        case 1 => "Fifteen"
-        case 2 => "Thirty"
-        case 3 => "Forty"
-      }
-      score += tempScore2
-    }
+    var score = convScore(scorePlayer1)
+    score += "-"
+    score += convScore(scorePlayer2)
     score
   }
 
