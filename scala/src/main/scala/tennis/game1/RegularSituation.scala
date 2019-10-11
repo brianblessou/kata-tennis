@@ -13,13 +13,13 @@ object RegularSituation extends GameSituation {
    * @param points the points of the player
    * @return the score for the player
    */
-  def regularScoringPlayer(points : Int): String = {
+  private def regularScoringPlayer(points : Int): String = {
     points match {
       case 0 => "Love"
       case 1 => "Fifteen"
       case 2 => "Thirty"
       case 3 => "Forty"
-      case _ => throw new BadScoreException("Bad Value")
+      case _ => throw BadScoreException("Bad Value")
     }
   }
 }

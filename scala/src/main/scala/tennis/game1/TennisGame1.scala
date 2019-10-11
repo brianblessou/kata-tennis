@@ -1,10 +1,7 @@
 package tennis.game1
 
 import tennis.TennisGame
-import tennis.exceptions.{BadScoreException, UnknownPlayerException}
-//trait GameSituation(val p1Points, ) {
-//  def score() : String
-//}
+import tennis.exceptions.UnknownPlayerException
 
 
 class TennisGame1(val player1Name: String, val player2Name: String) extends TennisGame {
@@ -16,7 +13,9 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
   /**
    * Adds a point to the player score
    * @param playerName player that scored a point
+   * @throws [[tennis.exceptions.UnknownPlayerException]]
    */
+  @throws(classOf[UnknownPlayerException])
   def wonPoint(playerName: String) {
     if (playerName == p1Name)
       p1Points += 1
