@@ -1,13 +1,14 @@
 package tennis
 
 import org.junit.Assert._
-
-
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.junit.runners.Parameterized.Parameters
 import java.util
+
+import tennis.game1.TennisGame1
+import tennis.game3.TennisGame3
 
 @RunWith(classOf[Parameterized])
 class TennisTest(params:TennisTestCase) {

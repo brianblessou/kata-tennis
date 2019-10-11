@@ -1,7 +1,10 @@
 package tennis.game1
 
+import tennis.exceptions.BadScoreException
+
 object RegularSituation extends GameSituation {
   def score(p1Points: Int, p2Points: Int): String = {
+    println(regularScoringPlayer(p1Points) + "-" + regularScoringPlayer(p2Points))
     regularScoringPlayer(p1Points) + "-" + regularScoringPlayer(p2Points)
   }
 
@@ -16,6 +19,7 @@ object RegularSituation extends GameSituation {
       case 1 => "Fifteen"
       case 2 => "Thirty"
       case 3 => "Forty"
+      case _ => throw new BadScoreException("Bad Value")
     }
   }
 }
