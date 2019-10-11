@@ -24,14 +24,13 @@ class TennisGame1:
     def score_more_than_4(self):
         minusResult = self.p1points - self.p2points
         if minusResult == 1:
-            result = "Advantage " + self.player1Name
+            return "Advantage " + self.player1Name
         elif minusResult == -1:
-            result = "Advantage " + self.player2Name
+            return "Advantage " + self.player2Name
         elif minusResult >= 2:
-            result = "Win for " + self.player1Name
+            return "Win for " + self.player1Name
         else:
-            result = "Win for " + self.player2Name
-        return result
+            return "Win for " + self.player2Name
 
     def diff_score(self):
         score_str_dico = {
@@ -40,7 +39,7 @@ class TennisGame1:
                 2: "Thirty",
                 3: "Forty",
             }
-        return "-".join(map(score_str_dico.get, [self.p1points, self.p2points]))
+        return score_str_dico[self.p1points] + "-"  + score_str_dico[self.p2points]
 
     def score(self):
         if (self.p1points == self.p2points):
