@@ -1,6 +1,6 @@
 import unittest
 
-from python.src.TennisGame3 import TennisGame3
+from python.src.TennisGame3.main import TennisGame3
 from python.test import play_game, test_cases
 
 
