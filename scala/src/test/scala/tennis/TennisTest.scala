@@ -1,13 +1,13 @@
 package tennis
 
 import org.junit.Assert._
-
-
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.junit.runners.Parameterized.Parameters
 import java.util
+
+import game1.TennisGame1
 
 @RunWith(classOf[Parameterized])
 class TennisTest(params:TennisTestCase) {
@@ -26,21 +26,21 @@ class TennisTest(params:TennisTestCase) {
     @Test
     def checkAllScoresTennisGame1() {
         val game = new TennisGame1("player1", "player2")
-        checkAllScores(game)
+      checkAllScores(game)
     }
 
-  @Test
-    def checkAllScoresTennisGame2() {
-        val game = new TennisGame2("player1", "player2")
-        checkAllScores(game)
-    }
-
-
-  @Test
-    def checkAllScoresTennisGame3() {
-        val game = new TennisGame3("player1", "player2")
-        checkAllScores(game)
-    }
+  //@Test
+  //  def checkAllScoresTennisGame2() {
+  //      val game = new TennisGame2("player1", "player2")
+  //      checkAllScores(game)
+  //  }
+//
+//
+  //@Test
+  //  def checkAllScoresTennisGame3() {
+  //      val game = new TennisGame3("player1", "player2")
+  //      checkAllScores(game)
+  //  }
 
 //
 //    @Test
