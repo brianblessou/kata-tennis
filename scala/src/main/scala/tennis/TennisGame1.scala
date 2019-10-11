@@ -2,8 +2,8 @@ package tennis
 
 
 class TennisGame1 (val player1Name : String, val player2Name : String) extends TennisGame {
-  var m_score1: Int = 0
-  var m_score2: Int = 0
+  var score1: Int = 0
+  var score2: Int = 0
 
   /**
    * add point to winner
@@ -11,9 +11,9 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    */
   def wonPoint(playerName : String) {
           if (playerName == "player1")
-              m_score1 += 1
+              score1 += 1
           else
-              m_score2 += 1
+              score2 += 1
       }
 
   /**
@@ -21,27 +21,27 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    * @return
    */
   def calculateScore() : String = {
-      if (m_score1==m_score2)
+      if (score1==score2)
       {
-        equality(m_score1)
+        equality(score1)
       }
-      else if (m_score1>=4 || m_score2>=4)
+      else if (score1>=4 || score2>=4)
       {
-        endZone(m_score1, m_score2)
+        endZone(score1, score2)
       }
       else
       {
-        pointToText(m_score1) + "-" + pointToText(m_score2)
+        pointToText(score1) + "-" + pointToText(score2)
       }
   }
 
   /**
    * handles deuces
-   * @param m_score1
+   * @param score1
    * @return
    */
-  def equality(m_score1 : Int) : String = {
-    val score = m_score1 match {
+  def equality(score1 : Int) : String = {
+    val score = score1 match {
       case 0 =>  "Love-All"
       case 1 => "Fifteen-All"
       case 2 => "Thirty-All"
@@ -53,12 +53,12 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
 
   /**
    * handles end of the game
-   * @param m_score1
-   * @param m_score2
+   * @param score1
+   * @param score2
    * @return
    */
-  def endZone(m_score1 : Int, m_score2 : Int) : String = {
-    val minusResult = m_score1-m_score2
+  def endZone(score1 : Int, score2 : Int) : String = {
+    val minusResult = score1-score2
     minusResult match {
       case 1 => "Advantage player1"
       case -1 => "Advantage player2"
