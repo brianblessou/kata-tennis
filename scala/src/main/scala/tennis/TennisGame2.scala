@@ -4,26 +4,19 @@ package tennis
 
 class TennisGame2 (val player1Name : String, val player2Name : String) extends TennisGame {
 
-    var P1point = 0
-    var P2point  = 0
+    private var P1point = 0
+    private var P2point  = 0
 
-    var P1res = ""
-    var P2res = ""
+    private var P1res = ""
+    private var P2res = ""
 
     def calculateScore() : String = {
         var score = ""
-        if (P1point == P2point && P1point < 4)
-        {
-            if (P1point==0)
-                score = "Love"
-            if (P1point==1)
-                score = "Fifteen"
-            if (P1point==2)
-                score = "Thirty"
-            score += "-All"
+        if (P1point == P2point) {
+          if(P1point < 3) score = lowEqual(P1point)
+          else if(P1point>=3) score = "Deuce"
+          else throw new Exception("score not in range of valid values")
         }
-        if (P1point==P2point && P1point>=3)
-            score = "Deuce"
 
         if (P1point > 0 && P2point==0)
         {
@@ -127,5 +120,17 @@ class TennisGame2 (val player1Name : String, val player2Name : String) extends T
             P1Score()
         else
             P2Score()
+    }
+
+    def lowEqual(point : Int) : String = {
+      var score = ""
+      if (P1point==0)
+        score = "Love"
+      if (P1point==1)
+        score = "Fifteen"
+      if (P1point==2)
+        score = "Thirty"
+      score += "-All"
+      score
     }
 }

@@ -30,13 +30,13 @@ class TennisTest(params:TennisTestCase) {
         checkAllScores(game)
     }
 */
-/*
+
   @Test
     def checkAllScoresTennisGame2() {
         val game = new TennisGame2("player1", "player2")
         checkAllScores(game)
     }
-*/
+
 /*
   @Test(expected = classOf[CustomException])
     def checkAllScoresTennisGame3() {
@@ -44,12 +44,13 @@ class TennisTest(params:TennisTestCase) {
         checkAllScores(game)
     }
 */
+  /*
   @Test(expected = classOf[CustomException])
   def checkWrongPlayerTennisGame3() {
     val game = new TennisGame3("player1", "player2")
     game.wonPoint("player3")
   }
-
+*/
 
 
   //
