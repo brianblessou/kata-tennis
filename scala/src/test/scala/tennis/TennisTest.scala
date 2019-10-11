@@ -8,7 +8,7 @@ import org.junit.runners.Parameterized.Parameters
 import java.util
 
 import tennis.game1.TennisGame1
-import tennis.game3.TennisGame3
+import tennis.game3.{CustomException, TennisGame3}
 
 @RunWith(classOf[Parameterized])
 class TennisTest(params:TennisTestCase) {
@@ -37,15 +37,22 @@ class TennisTest(params:TennisTestCase) {
         checkAllScores(game)
     }
 */
-
-  @Test
+/*
+  @Test(expected = classOf[CustomException])
     def checkAllScoresTennisGame3() {
         val game = new TennisGame3("player1", "player2")
         checkAllScores(game)
     }
+*/
+  @Test(expected = classOf[CustomException])
+  def checkWrongPlayerTennisGame3() {
+    val game = new TennisGame3("player1", "player2")
+    game.wonPoint("player3")
+  }
 
 
-//
+
+  //
 //    @Test
 //    public void checkAllScoresTennisGame3() {
 //        TennisGame3 game = new TennisGame3("player1", "player2");

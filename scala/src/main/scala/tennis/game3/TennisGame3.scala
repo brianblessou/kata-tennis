@@ -24,6 +24,7 @@ class TennisGame3 (val player1Name : String, val player2Name : String) extends T
    *
    * @param playerName
    */
+  @throws(classOf[CustomException])
   def wonPoint(playerName : String) {
     if (playerName == "player1")
       this.score1 += 1
