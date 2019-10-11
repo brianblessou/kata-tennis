@@ -23,13 +23,13 @@ class TennisGame3:
             else:
                 return player1_score + "-" + points_list[self.pointsPlayer2]
         elif self.pointsPlayer1 == self.pointsPlayer2:
-                return "Deuce"
+            return "Deuce"
         else:
             if self.pointsPlayer1 > self.pointsPlayer2:
-                player1_score = self.player1Name
+                winner_name = self.player1Name
             else:
-                player1_score = self.player2Name
+                winner_name = self.player2Name
             if (self.pointsPlayer1 - self.pointsPlayer2) * (self.pointsPlayer1 - self.pointsPlayer2) == 1:
-                return "Advantage " + player1_score
+                return "Advantage " + winner_name
             else:
-                return "Win for " + player1_score
+                return "Win for " + winner_name
