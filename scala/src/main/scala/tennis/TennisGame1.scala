@@ -16,8 +16,7 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    *
    * @param score Int between 0 and 2
    * @return scoreConv
-   * @auth Robin CAVALIERI
-   * @desc
+   * @author Robin CAVALIERI
    */
   def equalScore(score: Int) : String = {
     val scoreConv = score match {
@@ -35,7 +34,6 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    * @param scorePlayer2 Int between 0 and 2
    * @return score
    * @author Robin CAVALIERI
-   * @desc
    */
   def winningScore(scorePlayer1: Int, scorePlayer2: Int) : String = {
     var score = ""
@@ -62,7 +60,6 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    * @param scorePlayer2 Int between 0 and 2
    * @return
    * @author Robin CAVALIERI
-   * @desc
    */
   def diffScore(scorePlayer1: Int, scorePlayer2: Int): String = {
     var score = ""
