@@ -16,21 +16,20 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
       var score : String = ""
       if (m_score1==m_score2)
       {
-        score = calculateEqualScore()
+        return calculateEqualScore()
       }
       else if (m_score1>=4 || m_score2>=4)
       {
-        score = calculateScoreAboveFour()
+        return calculateScoreAboveFour()
       }
       else
       {
-          score = calculateScoreUnderFour()
+          return calculateScoreUnderFour()
       }
-    return score
   }
 
   def calculateEqualScore() : String = {
-    return m_score1 match {
+    m_score1 match {
       case 0 =>  "Love-All"
       case 1 => "Fifteen-All"
       case 2 => "Thirty-All"
@@ -40,28 +39,23 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
 
   def calculateScoreAboveFour() : String = {
     val minusResult = m_score1-m_score2
-    if (minusResult==1) return "Advantage player1"
-    else if (minusResult == -1) return "Advantage player2"
-    else if (minusResult>=2) return "Win for player1"
-    else return "Win for player2"
+    if (minusResult==1) "Advantage player1"
+    else if (minusResult == -1) "Advantage player2"
+    else if (minusResult>=2) "Win for player1"
+    else "Win for player2"
   }
 
   def calculateScoreUnderFour() : String = {
-    var tempScore=0
-    var score : String = "";
-    for ( i<- 1 until 3 by 1)
-    {
-      if (i==1) tempScore = m_score1
-      else { score+="-"; tempScore = m_score2;}
-      val tempScore2 = tempScore match {
-        case 0 => "Love"
-        case 1 => "Fifteen"
-        case 2 => "Thirty"
-        case 3 => "Forty"
-      }
-      score += tempScore2
+    return matchScore(m_score1)+"-"+matchScore(m_score2)
+  }
+
+  def matchScore(score : Int) : String = {
+    score match {
+      case 0 => "Love"
+      case 1 => "Fifteen"
+      case 2 => "Thirty"
+      case 3 => "Forty"
     }
-    return score
   }
 
 }
