@@ -3,8 +3,8 @@ package tennis.game1
 import tennis.TennisGame
 
 class TennisGame1 (val player1Name : String, val player2Name : String) extends TennisGame {
-  var score1: Int = 0
-  var score2: Int = 0
+  private var score1: Int = 0
+  private var score2: Int = 0
 
   /**
    * add point to winner

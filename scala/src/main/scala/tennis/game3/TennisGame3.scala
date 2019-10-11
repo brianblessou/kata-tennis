@@ -4,8 +4,8 @@ import tennis.TennisGame
 
 class TennisGame3 (val player1Name : String, val player2Name : String) extends TennisGame {
 
-  var score2 : Int = 0
-  var score1 : Int = 0
+  private var score2 : Int = 0
+  private var score1 : Int = 0
 
   /**
    *
@@ -30,7 +30,7 @@ class TennisGame3 (val player1Name : String, val player2Name : String) extends T
     else if(playerName == "player2")
       this.score2 += 1
     else
-      throw new Exception("player not in the game")
+      throw new CustomException("player not in the game")
 
   }
 
