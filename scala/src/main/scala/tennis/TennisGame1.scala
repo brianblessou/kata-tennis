@@ -6,7 +6,7 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
   var m_score2: Int = 0
 
   /**
-   *
+   * add point to winner
    * @param playerName
    */
   def wonPoint(playerName : String) {
@@ -17,29 +17,26 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
       }
 
   /**
-   *
+   * compute score of 2 players
    * @return
    */
   def calculateScore() : String = {
-      var score : String = ""
-      var tempScore=0
       if (m_score1==m_score2)
       {
-        score = equality(m_score1)
+        equality(m_score1)
       }
       else if (m_score1>=4 || m_score2>=4)
       {
-        score = endZone(m_score1, m_score2)
+        endZone(m_score1, m_score2)
       }
       else
       {
-          score = usual(m_score1, m_score2)
+        pointToText(m_score1) + "-" + pointToText(m_score2)
       }
-    return score
   }
 
   /**
-   *
+   * handles deuces
    * @param m_score1
    * @return
    */
@@ -55,48 +52,33 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
   }
 
   /**
-   *
+   * handles end of the game
    * @param m_score1
    * @param m_score2
    * @return
    */
   def endZone(m_score1 : Int, m_score2 : Int) : String = {
     val minusResult = m_score1-m_score2
-    val score = minusResult match {
+    minusResult match {
       case 1 => "Advantage player1"
       case -1 => "Advantage player2"
       case 2 | 3 | 4 => "Win for player1"
       case _ => "Win for player2"
     }
-    score
   }
 
   /**
-   *
-   * @param m_score1
-   * @param m_score2
-   * @return
-   */
-  def usual(m_score1 : Int, m_score2 : Int): String = {
-    val tempScore1 = pointToText(m_score1)
-    val tempScore2 = pointToText(m_score2)
-    val score = tempScore1 + "-" + tempScore2
-    score
-  }
-
-  /**
-   *
+   * transforms numeric points to textual value
    * @param point
    * @return
    */
   def pointToText(point : Int) : String = {
-    val value = point match {
+    point match {
       case 0 => "Love"
       case 1 => "Fifteen"
       case 2 => "Thirty"
       case 3 => "Forty"
     }
-    value
   }
 
 }
