@@ -8,7 +8,11 @@ class ScoreMoreThan4(Scoring):
         self.p1points = p1points
         self.p2points = p2points
 
-    def compute_score(self):
+    def compute_score(self) -> str:
+        """
+        Computes the score of the game
+        :return: string score
+        """
         minusResult = self.p1points - self.p2points
         if minusResult == 1:
             return "Advantage " + self.player1Name

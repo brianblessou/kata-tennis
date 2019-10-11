@@ -5,7 +5,11 @@ class EqualScore(Scoring):
     def __init__(self, p1points):
         self.p1points = p1points
 
-    def compute_score(self):
+    def compute_score(self) -> str:
+        """
+        Computes the score of the game
+        :return: string score
+        """
         return {
             0: "Love-All",
             1: "Fifteen-All",
