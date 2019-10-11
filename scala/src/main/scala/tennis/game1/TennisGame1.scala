@@ -19,19 +19,7 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends  
    * @return
    */
   def calculateScore() : String = {
-
-      if (m_score1 == m_score2)
-      {
-          new GameEquality().calculateScore(m_score1)
-      }
-      else if (m_score1>=4 || m_score2>=4)
-      {
-          new GameEnd().calculateScore(m_score1, m_score2)
-      }
-      else
-      {
-          new GameStatus().calculateScore(m_score1, m_score2)
-      }
+      new GameFactory(m_score1, m_score2).createGame()
   }
 
 

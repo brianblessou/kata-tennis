@@ -1,6 +1,6 @@
 package tennis.game1
 
-class GameStatus extends Game1Int {
+class GameStatus(scorePlayer1: Int, scorePlayer2: Int) extends Game1Int {
 
   /**
    *
@@ -23,7 +23,7 @@ class GameStatus extends Game1Int {
    * @return
    * @author Robin CAVALIERI
    */
-  def calculateScore(scorePlayer1: Int, scorePlayer2: Int): String = {
+  def calculateScore(): String = {
     convScore(scorePlayer1) + "-" + convScore(scorePlayer2)
   }
 

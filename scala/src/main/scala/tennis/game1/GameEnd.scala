@@ -1,6 +1,6 @@
 package tennis.game1
 
-class GameEnd extends Game1Int {
+class GameEnd(scorePlayer1: Int, scorePlayer2: Int) extends Game1Int {
 
   /**
    *
@@ -24,12 +24,10 @@ class GameEnd extends Game1Int {
 
   /**
    *
-   * @param scorePlayer1 Int between 0 and 2
-   * @param scorePlayer2 Int between 0 and 2
    * @return score
    * @author Robin CAVALIERI
    */
-  def calculateScore(scorePlayer1: Int, scorePlayer2: Int) : String = {
+  def calculateScore() : String = {
     getMatchStatus(scorePlayer1-scorePlayer2)
   }
 

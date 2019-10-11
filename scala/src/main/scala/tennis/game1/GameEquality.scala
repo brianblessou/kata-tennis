@@ -1,6 +1,6 @@
 package tennis.game1
 
-class GameEquality extends Game1Int {
+class GameEquality(score: Int) extends Game1Int {
 
   /**
    *
@@ -8,7 +8,7 @@ class GameEquality extends Game1Int {
    * @return scoreConv
    * @author Robin CAVALIERI
    */
-  def calculateScore(score: Int) : String = {
+  def calculateScore() : String = {
     score match {
       case 0 =>  "Love-All"
       case 1 => "Fifteen-All"
