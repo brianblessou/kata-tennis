@@ -18,9 +18,18 @@ class TennisGame3:
         if (self.pointsPlayer1 < 4 and self.pointsPlayer2 < 4) and (self.pointsPlayer1 + self.pointsPlayer2 < 6):
             points_list = ["Love", "Fifteen", "Thirty", "Forty"]
             player1_score = points_list[self.pointsPlayer1]
-            return player1_score + "-All" if (self.pointsPlayer1 == self.pointsPlayer2) else player1_score + "-" + points_list[self.pointsPlayer2]
-        else:
             if self.pointsPlayer1 == self.pointsPlayer2:
+                return player1_score + "-All"
+            else:
+                return player1_score + "-" + points_list[self.pointsPlayer2]
+        elif self.pointsPlayer1 == self.pointsPlayer2:
                 return "Deuce"
-            player1_score = self.player1Name if self.pointsPlayer1 > self.pointsPlayer2 else self.player2Name
-            return "Advantage " + player1_score if ((self.pointsPlayer1 - self.pointsPlayer2) * (self.pointsPlayer1 - self.pointsPlayer2) == 1) else "Win for " + player1_score
+        else:
+            if self.pointsPlayer1 > self.pointsPlayer2:
+                player1_score = self.player1Name
+            else:
+                player1_score = self.player2Name
+            if (self.pointsPlayer1 - self.pointsPlayer2) * (self.pointsPlayer1 - self.pointsPlayer2) == 1:
+                return "Advantage " + player1_score
+            else:
+                return "Win for " + player1_score
