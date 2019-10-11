@@ -17,7 +17,7 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    * @param score
    * @return scoreConv
    * @auth Robin CAVALIERI
-   * @desc In case of equal score, return the associated string
+   * @desc
    */
   def equalScore(score: Int) : String = {
     val scoreConv = score match {
@@ -26,41 +26,87 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
         case 2 => "Thirty-All"
         case _ => "Deuce"
     }
-    return scoreConv
+    scoreConv
   }
 
+  /**
+   *
+   * @param scorePlayer1
+   * @param scorePlayer2
+   * @return score
+   * @author Robin CAVALIERI
+   * @desc
+   */
+  def winningScore(scorePlayer1: Int, scorePlayer2: Int) : String = {
+    var score = ""
+    val minusResult = scorePlayer1-scorePlayer2
 
+    if (minusResult==1) {
+      score = "Advantage player1"
+    }
+    else if (minusResult == -1) {
+      score ="Advantage player2"
+    }
+    else if (minusResult>=2) {
+      score = "Win for player1"
+    }
+    else {
+      score ="Win for player2"
+    }
+    score
+  }
+
+  /**
+   *
+   * @param scorePlayer1
+   * @param scorePlayer2
+   * @return
+   * @author Robin CAVALIERI
+   * @desc
+   */
+  def diffScore(scorePlayer1: Int, scorePlayer2: Int): String = {
+    var score = ""
+    var tempScore = 0
+    for ( i<- 1 until 3 by 1)
+    {
+      if (i==1) {
+        tempScore = scorePlayer1
+      }
+      else {
+        score+="-";
+        tempScore = scorePlayer2
+      }
+      val tempScore2 = tempScore match {
+        case 0 => "Love"
+        case 1 => "Fifteen"
+        case 2 => "Thirty"
+        case 3 => "Forty"
+      }
+      score += tempScore2
+    }
+    score
+  }
+
+  /**
+   *
+   * @return
+   */
   def calculateScore() : String = {
       var score : String = ""
-      var tempScore=0
+
       if (m_score1==m_score2)
       {
-        score = equalScore(m_score1)
+          score = equalScore(m_score1)
       }
       else if (m_score1>=4 || m_score2>=4)
       {
-          val minusResult = m_score1-m_score2
-          if (minusResult==1) score ="Advantage player1"
-          else if (minusResult == -1) score ="Advantage player2"
-          else if (minusResult>=2) score = "Win for player1"
-          else score ="Win for player2"
+          score = winningScore(m_score1, m_score2)
       }
       else
       {
-          for ( i<- 1 until 3 by 1)
-          {
-              if (i==1) tempScore = m_score1
-              else { score+="-"; tempScore = m_score2;}
-              val tempScore2 = tempScore match {
-                  case 0 => "Love"
-                  case 1 => "Fifteen"
-                  case 2 => "Thirty"
-                  case 3 => "Forty"
-              }
-            score += tempScore2
-          }
+          score = diffScore(m_score1, m_score2)
       }
-    return score
+      score
   }
 
 }
