@@ -12,5 +12,6 @@ class TestTennis3(unittest.TestCase):
             game = play_game(TennisGame3, p1Points, p2Points, p1Name, p2Name)
             self.assertEqual(score, game.score())
 
+
 if __name__ == "__main__":
     unittest.main()
