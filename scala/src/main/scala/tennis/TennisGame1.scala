@@ -17,21 +17,15 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
       var tempScore=0
       if (m_score1==m_score2)
       {
-        score = m_score1 match {
-              case 0 =>  "Love-All"
-              case 1 => "Fifteen-All"
-              case 2 => "Thirty-All"
-              case _ => "Deuce"
-
-          }
+        score = calculateEqualScore()
       }
       else if (m_score1>=4 || m_score2>=4)
       {
-          val minusResult = m_score1-m_score2
-          if (minusResult==1) score ="Advantage player1"
-          else if (minusResult == -1) score ="Advantage player2"
-          else if (minusResult>=2) score = "Win for player1"
-          else score ="Win for player2"
+        val minusResult = m_score1-m_score2
+        if (minusResult==1) score ="Advantage player1"
+        else if (minusResult == -1) score ="Advantage player2"
+        else if (minusResult>=2) score = "Win for player1"
+        else score ="Win for player2"
       }
       else
       {
@@ -49,6 +43,15 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
           }
       }
     return score
+  }
+
+  def calculateEqualScore() : String = {
+    return m_score1 match {
+      case 0 =>  "Love-All"
+      case 1 => "Fifteen-All"
+      case 2 => "Thirty-All"
+      case _ => "Deuce"
+    }
   }
 
 }
