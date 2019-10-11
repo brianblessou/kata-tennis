@@ -8,6 +8,7 @@ import org.junit.runners.Parameterized.Parameters
 import java.util
 
 import tennis.game1.TennisGame1
+import tennis.game3.TennisGame3
 
 @RunWith(classOf[Parameterized])
 class TennisTest(params:TennisTestCase) {
@@ -23,25 +24,26 @@ class TennisTest(params:TennisTestCase) {
         assertEquals(params.expectedScore, game.calculateScore())
     }
 
-    @Test
+/*    @Test
     def checkAllScoresTennisGame1() {
         val game = new TennisGame1("player1", "player2")
         checkAllScores(game)
     }
+*/
 /*
   @Test
     def checkAllScoresTennisGame2() {
         val game = new TennisGame2("player1", "player2")
         checkAllScores(game)
     }
-
+*/
 
   @Test
     def checkAllScoresTennisGame3() {
         val game = new TennisGame3("player1", "player2")
         checkAllScores(game)
     }
-*/
+
 
 //
 //    @Test

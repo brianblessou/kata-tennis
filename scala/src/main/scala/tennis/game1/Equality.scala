@@ -13,7 +13,6 @@ object Equality extends Situation {
       case 1 => "Fifteen-All"
       case 2 => "Thirty-All"
       case _ => "Deuce"
-
     }
   }
 }

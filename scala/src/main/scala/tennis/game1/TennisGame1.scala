@@ -11,11 +11,12 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    * @param playerName
    */
   def wonPoint(playerName : String) {
-          if (playerName == "player1")
-              score1 += 1
-          else
-              score2 += 1
-      }
+    playerName match {
+      case "player1" =>  score1 += 1
+      case "player2" => score2 += 1
+      case _ => throw new Exception("player not in the game")
+    }
+  }
 
   /**
    * compute score of 2 players

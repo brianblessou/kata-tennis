@@ -22,6 +22,7 @@ object Usual extends Situation {
       case 1 => "Fifteen"
       case 2 => "Thirty"
       case 3 => "Forty"
+      case _ => throw new Exception("point out of scope")
     }
   }
 }
