@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from python.src.TennisGame3.points_lower_than_4 import PointsLowerThan4
+from python.src.TennisGame3.points_bigger_than_4 import PointsBiggerThan4
 
 class TennisGame3:
     def __init__(self, player1Name: str, player2Name: str):
@@ -24,19 +25,7 @@ class TennisGame3:
         else:
             self.pointsPlayer2 += 1
 
-    def points_bigger_than_4(self):
-        """
-        Compute score when score of at least one player is bigger than 4 and scores are not equal
-        :return: Actual score (str)
-        """
-        if self.pointsPlayer1 > self.pointsPlayer2:
-            winner_name = self.player1Name
-        else:
-            winner_name = self.player2Name
-        if abs(self.pointsPlayer1 - self.pointsPlayer2) == 1:
-            return "Advantage " + winner_name
-        else:
-            return "Win for " + winner_name
+
 
     def score(self) -> str:
         """
@@ -48,4 +37,4 @@ class TennisGame3:
         elif self.pointsPlayer1 < 4 and self.pointsPlayer2 < 4:
             return PointsLowerThan4(self).compute_score()
         else:
-            return self.points_bigger_than_4()
+            return PointsBiggerThan4(self).compute_score()
