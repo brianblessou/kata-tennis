@@ -1,6 +1,6 @@
 package tennis.game1
 
-class GameStatus(scorePlayer1: Int, scorePlayer2: Int) extends Game1Int {
+class GameStatus(scorePlayer1: Int, scorePlayer2: Int) {
 
   /**
    *

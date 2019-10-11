@@ -8,6 +8,8 @@ import org.junit.runners.Parameterized.Parameters
 import java.util
 
 import tennis.game1.TennisGame1
+import tennis.game2.TennisGame2
+import tennis.game3.TennisGame3
 
 @RunWith(classOf[Parameterized])
 class TennisTest(params:TennisTestCase) {

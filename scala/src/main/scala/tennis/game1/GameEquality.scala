@@ -1,6 +1,6 @@
 package tennis.game1
 
-class GameEquality(score: Int) extends Game1Int {
+class GameEquality(score: Int) {
 
   /**
    *
