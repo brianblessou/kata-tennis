@@ -71,7 +71,6 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
     scoreConv
   }
 
-
   /**
    *
    * @param scorePlayer1 Int between 0 and 2
@@ -80,10 +79,7 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
    * @author Robin CAVALIERI
    */
   def diffScore(scorePlayer1: Int, scorePlayer2: Int): String = {
-    var score = convScore(scorePlayer1)
-    score += "-"
-    score += convScore(scorePlayer2)
-    score
+    convScore(scorePlayer1) + "-" + convScore(scorePlayer2)
   }
 
   /**
