@@ -14,19 +14,7 @@ class TennisGame1 (val player1Name : String, val player2Name : String) extends T
       }
 
   def calculateScore() : String = {
-      var score : String = ""
-      if (m_score1==m_score2)
-      {
-        EqualScore.getScore(m_score1)
-      }
-      else if (m_score1>=4 || m_score2>=4)
-      {
-        ScoreAboveFour.getScore(m_score1, m_score2)
-      }
-      else
-      {
-        ScoreUnderFour.getScore(m_score1, m_score2)
-      }
+    ScoreFactory.returnObject(m_score1, m_score2).getScore()
   }
 
 

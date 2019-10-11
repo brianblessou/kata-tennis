@@ -1,8 +1,8 @@
 package tennis.game1
 
-object EqualScore {
+class EqualScore(score : Int) extends CalculateScore {
 
-  def getScore(score : Int): String ={
+  def getScore(): String ={
     score match {
       case 0 =>  "Love-All"
       case 1 => "Fifteen-All"

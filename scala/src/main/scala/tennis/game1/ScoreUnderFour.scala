@@ -1,7 +1,7 @@
 package tennis.game1
 
-object ScoreUnderFour {
-  def getScore(score1 : Int, score2 : Int) : String = {
+class ScoreUnderFour(score1 : Int, score2 : Int) extends CalculateScore {
+  def getScore() : String = {
     matchScore(score1)+"-"+matchScore(score2)
   }
 
